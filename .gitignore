@@ -1,0 +1,5 @@
+/src/controllers
+/src/routes
+old*.php
+/vendor
+/.idea
