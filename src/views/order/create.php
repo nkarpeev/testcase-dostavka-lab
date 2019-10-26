@@ -14,26 +14,26 @@
 <h1>Create order</h1>
 
 <div class="col-md-12">
-    <form action="/order/create" method="post">
+    <form action="/" method="post">
         <div class="col-md-12">
             <label for="from">Откуда доставить</label>
-            <input type="text" name="from" id="from">
+            <input type="text" name="from" id="from" required value="{{from}}">
         </div>
         <div class="col-md-12">
             <label for="destination">Куда доставить</label>
-            <input type="text" name="destination" id="destination">
+            <input class="" type="text" name="destination" id="destination" value="{{destination}}">
         </div>
         <div class="col-md-12">
             <label for="delivery_date">Дата</label>
-            <input type="text" name="delivery_date" id="delivery_date">
+            <input type="text" name="delivery_date" id="delivery_date" value="{{delivery_date}}">
         </div>
         <div class="col-md-12">
             <label for="name">Ваше имя</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" value="{{name}}">
         </div>
         <div class="col-md-12">
             <label for="phone">Ваш телефон</label>
-            <input type="text" name="phone" id="phone">
+            <input type="text" name="phone" id="phone" value="{{phone}}">
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
