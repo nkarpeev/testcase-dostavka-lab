@@ -11,32 +11,52 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-<h1>Create order</h1>
+<div class="wrap">
+    <div class="container">
+        <h1>Заполните заявку и мы подберем вам курьера!</h1>
+        <div class="col-md-10 col-md-offset-2">
+            <form action="/" method="post">
+                <div class="col-md-12">
+                    <div class="col-md-7 form-group">
+                        <label for="from">Откуда доставить</label>
+                        <input type="text" class="form-control" name="from" id="from" placeholder="Откуда доставить"
+                               required value="{{from}}">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-7 form-group">
+                        <label for="destination">Куда доставить</label>
+                        <input class="form-control" type="text" name="destination" id="destination"
+                               value="{{destination}}">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-7 form-group">
+                        <label for="delivery_date">Дата</label>
+                        <input class="form-control" type="text" name="delivery_date" id="delivery_date"
+                               value="{{delivery_date}}">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-7 form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" class="form-control" name="name" id="name" value="{{name}}">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-7 form-group">
+                        <label for="phone">Ваш телефон</label>
+                        <input type="text" class="form-control" name="phone" id="phone" value="{{phone}}">
+                    </div>
+                </div>
+                <hr>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-success">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-<div class="col-md-12">
-    <form action="/" method="post">
-        <div class="col-md-12">
-            <label for="from">Откуда доставить</label>
-            <input type="text" name="from" id="from" required value="{{from}}">
-        </div>
-        <div class="col-md-12">
-            <label for="destination">Куда доставить</label>
-            <input class="" type="text" name="destination" id="destination" value="{{destination}}">
-        </div>
-        <div class="col-md-12">
-            <label for="delivery_date">Дата</label>
-            <input type="text" name="delivery_date" id="delivery_date" value="{{delivery_date}}">
-        </div>
-        <div class="col-md-12">
-            <label for="name">Ваше имя</label>
-            <input type="text" name="name" id="name" value="{{name}}">
-        </div>
-        <div class="col-md-12">
-            <label for="phone">Ваш телефон</label>
-            <input type="text" name="phone" id="phone" value="{{phone}}">
-        </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-    </form>
 </div>
 
 
