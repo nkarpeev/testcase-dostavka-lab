@@ -29,27 +29,27 @@ class AdditionalServicesForOrderTable extends AbstractMigration
      * Remember to call "create()" or "update()" and NOT "save()" when working
      * with the Table class.
      */
-    public function change()
+    public function up()
     {
         $table = $this->table('additional_services_for_orders');
         $table->addColumn('order_id', 'integer', ['limit' => 11])
-            ->addColumn('additional_service_id', 'integer', ['limit' => 11])
-//            ->addForeignKey(['additional_service_id'],
-//                'additional_services',
-//                ['id'],
-//                ['delete' => 'RESTRICT', 'update' => 'CASCADE', 'constraint' => 'fk_additional_services_for_orders_to_additional_services'])
-//            ->addForeignKey(['order_id'],
-//                'orders',
-//                ['id'],
-//                ['delete' => 'RESTRICT', 'update' => 'CASCADE', 'constraint' => 'fk_additional_services_for_orders_to_orders'])
-            ->create();
-
+            ->addColumn('additional_service_id', 'integer')
+            ->addForeignKey('additional_service_id',
+                'additional_services_dictionary',
+                'id',
+                ['delete' => 'RESTRICT', 'update' => 'CASCADE', 'constraint' => 'fk_additional_services_for_orders_to_additional_services'])
+            ->addForeignKey(['order_id'],
+                'orders',
+                ['id'],
+                ['delete' => 'RESTRICT', 'update' => 'CASCADE', 'constraint' => 'fk_additional_services_for_orders_to_orders'])
+            ->save();
     }
 
     public function down()
     {
         $table = $this->table('additional_services_for_orders');
-        $table->dropForeignKey('fk_additional_services_for_orders_to_additional_services')->save();
-        $table->drop('additional_services_for_orders')->save();
+        $table->dropForeignKey('fk_additional_services_for_orders_to_additional_services')
+            ->dropForeignKey('fk_additional_services_for_orders_to_orders')
+            ->drop('additional_services_for_orders')->save();
     }
 }

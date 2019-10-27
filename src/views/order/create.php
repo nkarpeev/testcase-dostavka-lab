@@ -19,36 +19,52 @@
                 <div class="col-md-12">
                     <div class="col-md-7 form-group">
                         <label for="from">Откуда доставить</label>
-                        <input type="text" class="form-control" name="from" id="from" placeholder="Откуда доставить"
-                               required value="{{from}}">
+                        <input type="text" class="form-control" name="orders[from]" id="from"
+                               placeholder="Откуда доставить"
+                               required value="{{orders.from}}">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="col-md-7 form-group">
                         <label for="destination">Куда доставить</label>
-                        <input class="form-control" type="text" name="destination" id="destination"
-                               value="{{destination}}">
+                        <input class="form-control" type="text" name="orders[destination]" id="destination"
+                               value="{{orders.destination}}">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="col-md-7 form-group">
                         <label for="delivery_date">Дата</label>
-                        <input class="form-control" type="text" name="delivery_date" id="delivery_date"
-                               value="{{delivery_date}}">
+                        <input class="form-control" type="text" name="orders[delivery_date]" id="delivery_date"
+                               value="{{orders.delivery_date}}">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="col-md-7 form-group">
                         <label for="name">Ваше имя</label>
-                        <input type="text" class="form-control" name="name" id="name" value="{{name}}">
+                        <input type="text" class="form-control" name="orders[name]" id="name" value="{{orders.name}}">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="col-md-7 form-group">
                         <label for="phone">Ваш телефон</label>
-                        <input type="text" class="form-control" name="phone" id="phone" value="{{phone}}">
+                        <input type="text" class="form-control" name="orders[phone]" id="phone"
+                               value="{{orders.phone}}">
                     </div>
                 </div>
+                <div class="col-md-12">
+                    <div class="col-md-7 form-group">
+                        <select class="custom-select" name="add_services[]" multiple>
+                            {% for service in addServicesData %}
+                            <option value="{{service.id}}">{{service.label}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <input type="hidden" class="form-control" name="geo_coordinates[longitude]" id="longitude"
+                       value="56.84845">
+                <input type="hidden" class="form-control" name="geo_coordinates[latitude]" id="latitude"
+                       value="35.15484">
+
                 <hr>
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-success">Отправить</button>
