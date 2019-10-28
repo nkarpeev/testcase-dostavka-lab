@@ -16,7 +16,6 @@ class GeoServiceTest extends TestCase
     }
 
     public function testGetCoordsByAddress() {
-//        $this->assertEquals('37.734479 55.684067', $this->mGeoService->getCoordsByAddress('Москва, Курская 11'));
         $this->assertEquals('37.734479 55.684067', GeoService::getCoordsByAddress('Москва, Курская 11'));
     }
 

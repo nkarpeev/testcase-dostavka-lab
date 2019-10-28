@@ -11,8 +11,8 @@
 <body>
 <div class="wrap">
     <div class="container">
-        <h1>Заполните заявку и мы подберем вам курьера!</h1>
-        <div class="col-md-10 col-md-offset-2">
+        <h1 class="text-center">Заполните заявку и мы подберем вам курьера!</h1>
+        <div class="col-md-8 col-md-offset-3">
             <form action="/" method="post">
                 <div class="col-md-12">
                     <div class="col-md-7 form-group">
@@ -20,7 +20,6 @@
                         <input type="text" class="form-control" name="orders[from]" id="from"
                                maxlength="100"
                                minlength="5"
-                               placeholder="Откуда доставить"
                                required
                                value="{{orders.from}}">
                     </div>
@@ -38,10 +37,11 @@
                 <div class="col-md-12">
                     <div class="col-md-7 form-group">
                         <label for="delivery_date">Дата</label>
-                        <small>пример: 2019-25-11 14:00:00</small>
-                        <input class="form-control" type="datetime-local" name="orders[delivery_date]" id="delivery_date"
+                        <input class="form-control" type="datetime-local" name="orders[delivery_date]"
+                               id="delivery_date"
                                required
                                value="{{orders.delivery_date}}">
+                        <small>пример: 11-25-2019 14:00</small>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -64,7 +64,8 @@
                 </div>
                 <div class="col-md-12">
                     <div class="col-md-12 form-group">
-                        <select class="custom-select" name="add_services[]" multiple>
+                        <select class="custom-select col-md-6" name="add_services[]" multiple>
+                            <option selected >Без дополнительных услуг</option>
                             {% for service in addServicesData %}
                             <option value="{{service.id}}">{{service.label}}</option>
                             {% endfor %}
@@ -103,8 +104,7 @@
 
 </div>
 
-<script src="/resources/js/lib/input_mask.min.js">
+<script src="/resources/js/lib/input_mask.min.js"></script>
 
-</script>
 </body>
 </html>
