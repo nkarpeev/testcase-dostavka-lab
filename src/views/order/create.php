@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="col-md-12 form-group">
-                        <select class="custom-select col-md-6" name="add_services[]" multiple>
+                        <select style="min-height: 100px;" class="custom-select col-md-6" name="add_services[]" multiple>
                             <option selected >Без дополнительных услуг</option>
                             {% for service in addServicesData %}
                             <option value="{{service.id}}">{{service.label}}</option>
