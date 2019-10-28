@@ -32,8 +32,8 @@ class GeoCoordinatesTable extends AbstractMigration
     public function change()
     {
         $table = $this->table('geo_coordinates');
-        $table->addColumn('latitude', 'string', ['limit' => 255])
-            ->addColumn('longitude', 'string', ['limit' => 255])
+        $table->addColumn('coords_from', 'string', ['limit' => 255, 'null' => true])
+            ->addColumn('coords_destination', 'string', ['limit' => 255, 'null' => true])
             ->addColumn('order_id', 'integer')
             ->addForeignKey(['order_id'],
                 'orders',
