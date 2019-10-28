@@ -6,9 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/resources/css/lib/bootstrap.min.css">
 </head>
 <body>
 <div class="wrap">
@@ -20,39 +18,52 @@
                     <div class="col-md-7 form-group">
                         <label for="from">Откуда доставить</label>
                         <input type="text" class="form-control" name="orders[from]" id="from"
+                               maxlength="100"
+                               minlength="5"
                                placeholder="Откуда доставить"
-                               required value="{{orders.from}}">
+                               required
+                               value="{{orders.from}}">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="col-md-7 form-group">
                         <label for="destination">Куда доставить</label>
                         <input class="form-control" type="text" name="orders[destination]" id="destination"
+                               maxlength="100"
+                               minlength="5"
+                               required
                                value="{{orders.destination}}">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="col-md-7 form-group">
                         <label for="delivery_date">Дата</label>
-                        <input class="form-control" type="text" name="orders[delivery_date]" id="delivery_date"
+                        <small>пример: 2019-25-11 14:00:00</small>
+                        <input class="form-control" type="datetime-local" name="orders[delivery_date]" id="delivery_date"
+                               required
                                value="{{orders.delivery_date}}">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="col-md-7 form-group">
                         <label for="name">Ваше имя</label>
-                        <input type="text" class="form-control" name="orders[name]" id="name" value="{{orders.name}}">
+                        <input type="text" class="form-control" name="orders[name]" id="name"
+                               minlength="2"
+                               maxlength="30"
+                               required
+                               value="{{orders.name}}">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="col-md-7 form-group">
                         <label for="phone">Ваш телефон</label>
-                        <input type="text" class="form-control" name="orders[phone]" id="phone"
+                        <input type="tel" class="form-control tel" name="orders[phone]" id="phone"
+                               required
                                value="{{orders.phone}}">
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="col-md-7 form-group">
+                    <div class="col-md-12 form-group">
                         <select class="custom-select" name="add_services[]" multiple>
                             {% for service in addServicesData %}
                             <option value="{{service.id}}">{{service.label}}</option>
@@ -69,15 +80,31 @@
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-success">Отправить</button>
                 </div>
+
             </form>
+            <div class="col-md-12 messages" style="margin-top: 20px">
+                {% if errors.status == 'success' %}
+                <div class="alert alert-success">
+                    {{errors.messages}}
+                </div>
+
+                {% elseif errors.status == 'error' %}
+                <div class="alert alert-danger">
+                    {% for msg in errors.messages %}
+                    <p>{{msg}}</p>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {% endif %}
+            </div>
         </div>
+
     </div>
 
 </div>
 
+<script src="/resources/js/lib/input_mask.min.js">
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
 </script>
 </body>
 </html>
